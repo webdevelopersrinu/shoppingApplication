@@ -166,7 +166,7 @@ function Login() {
         )}
       </div>
       <button className="bg-black text-white font-light px-8 py-2 mt-4">
-        {currentState === "Login" ? "Sing In" : "Login"}
+        {currentState === "Login" ? "Login" : "Sing In"}
       </button>
     </form>
   );
