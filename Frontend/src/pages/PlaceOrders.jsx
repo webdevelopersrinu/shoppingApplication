@@ -56,18 +56,23 @@ function PlaceOrders() {
           items: orderItems,
           amount: getCardAmount() + delivery_fee,
         };
-        const response = await axios.post(
-          backendUrl + "/api/v1/order/palce",
-          orderData,
-          { headers: { Authorization: "Bearer " + token } }
-        );
-        if (response.data.message) {
-          console.log(response.data.message);
-          toast.success(response.data.message);
-          setCartItems({});
-          navigate("/orders");
+
+        if (token !== "") {
+          const response = await axios.post(
+            backendUrl + "/api/v1/order/palce",
+            orderData,
+            { headers: { Authorization: "Bearer " + token } }
+          );
+          if (response.data.message) {
+            console.log(response.data.message);
+            toast.success(response.data.message);
+            setCartItems({});
+            navigate("/orders");
+          } else {
+            toast.error(response.message);
+          }
         } else {
-          toast.error(response.message);
+          toast.error("login to place the order");
         }
 
         // switch (method) {
