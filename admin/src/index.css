@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+a.active {
+  background-color: #fbcfe8;
+  border-color: rgb(249 168 212);
+}
